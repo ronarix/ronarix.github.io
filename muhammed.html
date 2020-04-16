@@ -1,169 +1,260 @@
-@@ -1,168 +0,0 @@
-<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title></title>
-  <style>
-  html, body {
-    height: 100%;
-    margin: 0;
-  }
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
 
-  body {
-    background: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  canvas {
-    border: 1px solid white;
-  }
-  </style>
+    <title>Eron der Bot!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <style type="text/css">
+                /*********************************************
+                        Call Bootstrap
+        *********************************************/
+
+                @import url("bootstrap/bootstrap.min.css");
+                @import url("bootstrap-override.css");
+                @import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
+
+                /*********************************************
+                        Theme Elements
+        *********************************************/
+
+                .gold {
+                    color: #FFBF00;
+                }
+
+                /*********************************************
+                            PRODUCTS
+        *********************************************/
+
+                .product {
+                    border: 1px solid #dddddd;
+                    height: 321px;
+                }
+
+                    .product > img {
+                        max-width: 230px;
+                    }
+
+                .product-rating {
+                    font-size: 20px;
+                    margin-bottom: 25px;
+                }
+
+                .product-title {
+                    font-size: 20px;
+                }
+
+                .product-desc {
+                    font-size: 14px;
+                }
+
+                .product-price {
+                    font-size: 22px;
+                }
+
+                .product-stock {
+                    color: #74DF00;
+                    font-size: 20px;
+                    margin-top: 10px;
+                }
+
+                .product-info {
+                    margin-top: 50px;
+                }
+
+                /*********************************************
+                            VIEW
+        *********************************************/
+
+                .content-wrapper {
+                    max-width: 1140px;
+                    background: #fff;
+                    margin: 0 auto;
+                    margin-top: 25px;
+                    margin-bottom: 10px;
+                    border: 0px;
+                    border-radius: 0px;
+                }
+
+                .container-fluid {
+                    max-width: 1140px;
+                    margin: 0 auto;
+                }
+
+                .view-wrapper {
+                    float: right;
+                    max-width: 70%;
+                    margin-top: 25px;
+                }
+
+                .container {
+                    padding-left: 0px;
+                    padding-right: 0px;
+                    max-width: 100%;
+                }
+
+                /*********************************************
+                        ITEM
+        *********************************************/
+
+                .service1-items {
+                    padding: 0px 0 0px 0;
+                    float: left;
+                    position: relative;
+                    overflow: hidden;
+                    max-width: 100%;
+                    height: 321px;
+                    width: 130px;
+                }
+
+                .service1-item {
+                    height: 107px;
+                    width: 120px;
+                    display: block;
+                    float: left;
+                    position: relative;
+                    padding-right: 20px;
+                    border-right: 1px solid #DDD;
+                    border-top: 1px solid #DDD;
+                    border-bottom: 1px solid #DDD;
+                }
+
+                    .service1-item > img {
+                        max-height: 110px;
+                        max-width: 110px;
+                        opacity: 0.6;
+                        transition: all .2s ease-in;
+                        -o-transition: all .2s ease-in;
+                        -moz-transition: all .2s ease-in;
+                        -webkit-transition: all .2s ease-in;
+                    }
+
+                        .service1-item > img:hover {
+                            cursor: pointer;
+                            opacity: 1;
+                        }
+
+                .service-image-left {
+                    padding-right: 50px;
+                }
+
+                .service-image-right {
+                    padding-left: 50px;
+                }
+
+                    .service-image-left > center > img, .service-image-right > center > img {
+                        max-height: 155px;
+                    }
+    </style>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        window.alert = function () { };
+        var defaultCSS = document.getElementById('bootstrap-css');
+        function changeCSS(css) {
+            if (css) $('head > link').filter(':first').replaceWith('<link rel="stylesheet" href="' + css + '" type="text/css" />');
+            else $('head > link').filter(':first').replaceWith(defaultCSS);
+        }
+        $(document).ready(function () {
+            var iframe_height = parseInt($('html').height());
+            window.parent.postMessage(iframe_height, 'https://bootsnipp.com');
+        });
+    </script>
 </head>
 <body>
-<canvas width="400" height="400" id="game"></canvas>
-<script>
-var canvas = document.getElementById('game');
-var context = canvas.getContext('2d');
+    <div class="container-fluid">
+        <div class="content-wrapper">
+            <div class="item-container">
+                <div class="container">
+                    <div class="col-md-12">
+                        <div class="product col-md-3 service-image-left">
 
-var grid = 16;
-var count = 0;
-  
-var snake = {
-  x: 160,
-  y: 160,
-  
-  // snake velocity. moves one grid length every frame in either the x or y direction
-  dx: grid,
-  dy: 0,
-  
-  // keep track of all grids the snake body occupies
-  cells: [],
-  
-  // length of the snake. grows when eating an apple
-  maxCells: 4
-};
-var apple = {
-  x: 320,
-  y: 320
-};
+                            <center>
+                                <img id="item-display" src="https://i.ibb.co/r3BJFqS/image.png" alt="">
+                            </center>
+                        </div>
 
-// get random whole numbers in a specific range
-// @see https://stackoverflow.com/a/1527820/2124254
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
-}
+                        <div class="container service1-items col-sm-2 col-md-2 pull-left">
+                            <center>
+                                <a id="item-1" class="service1-item">
+                                    <img src="https://cdn.discordapp.com/attachments/688771523863117856/688776748565004319/Snapchat-1859980624.jpg" alt="">
+                                </a>
+                                <a id="item-2" class="service1-item">
+                                    <img src="https://cdn.discordapp.com/attachments/688771523863117856/688779717133992052/IMG-20191014-WA0011.jpg" alt="">
+                                </a>
+                                <a id="item-3" class="service1-item">
+                                    <img src="https://cdn.discordapp.com/attachments/688771523863117856/688782677154857135/IMG-20200311-WA0021.jpg" alt="">
+                                </a>
+                            </center>
+                        </div>
+                    </div>
 
-// game loop
-function loop() {
-  requestAnimationFrame(loop);
+                    <div class="col-md-7">
+                        <div class="product-title">Eron der Bot</div>
+                        <div class="product-desc">Was das amk? amk</div>
+                        <div class="product-rating"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star-o"></i> </div>
+                        <hr>
+                        <div class="product-price">$ 1234.00</div>
+                        <div class="product-stock">In Stock</div>
+                        <hr>
+                        <div class="btn-group cart">
+                            <button type="button" class="btn btn-success">
+                                Add to cart
+                            </button>
+                        </div>
+                        <div class="btn-group wishlist">
+                            <button type="button" class="btn btn-danger">
+                                Add to wishlist
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="col-md-12 product-info">
+                    <ul id="myTab" class="nav nav-tabs nav_tabs">
 
-  // slow game loop to 15 fps instead of 60 (60/15 = 4)
-  if (++count < 6) {
-    return;
-  }
+                        <li class="active"><a href="#service-one" data-toggle="tab">Beschreibung</a></li>
+                        <li><a href="#service-two" data-toggle="tab">Produkt Infoﬂ</a></li>
+                        <li><a href="#service-three" data-toggle="tab">REZENSIONEN?</a></li>
 
-  count = 0;
-  context.clearRect(0,0,canvas.width,canvas.height);
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade in active" id="service-one">
 
-  // move snake by it's velocity
-  snake.x += snake.dx;
-  snake.y += snake.dy;
+                            <section class="container product-info">
+                                Eron ist halt eron halt nh bot amk nh?
 
-  // wrap snake position horizontally on edge of screen
-  if (snake.x < 0) {
-    snake.x = canvas.width - grid;
-  }
-  else if (snake.x >= canvas.width) {
-    snake.x = 0;
-  }
-  
-  // wrap snake position vertically on edge of screen
-  if (snake.y < 0) {
-    snake.y = canvas.height - grid;
-  }
-  else if (snake.y >= canvas.height) {
-    snake.y = 0;
-  }
+                                <h3>Eron der Bot:</h3>
+                                <li>Was soll ich hier machen?</li>
+                                <li>Was soll ich hier machen?</li>
+                                <li>Was soll ich hier machen?</li>
+                                <li>Was soll ich hier machen?</li>
+                                <li>Was soll ich hier machen?</li>
+                                <li>Was soll ich hier machen?</li>
 
-  // keep track of where snake has been. front of the array is always the head
-  snake.cells.unshift({x: snake.x, y: snake.y});
+                            </section>
 
-  // remove cells as we move away from them
-  if (snake.cells.length > snake.maxCells) {
-    snake.cells.pop();
-  }
+                        </div>
+                        <div class="tab-pane fade" id="service-two">
 
-  // draw apple
-  context.fillStyle = 'red';
-  context.fillRect(apple.x, apple.y, grid-1, grid-1);
+                            <section class="container">
+                            </section>
 
-  // draw snake one cell at a time
-  context.fillStyle = 'green';
-  snake.cells.forEach(function(cell, index) {
-    
-    // drawing 1 px smaller than the grid creates a grid effect in the snake body so you can see how long it is
-    context.fillRect(cell.x, cell.y, grid-1, grid-1);  
+                        </div>
+                        <div class="tab-pane fade" id="service-three">
 
-    // snake ate apple
-    if (cell.x === apple.x && cell.y === apple.y) {
-      snake.maxCells++;
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    </script>
 
-      // canvas is 400x400 which is 25x25 grids 
-      apple.x = getRandomInt(0, 25) * grid;
-      apple.y = getRandomInt(0, 25) * grid;
-    }
 
-    // check collision with all cells after this one (modified bubble sort)
-    for (var i = index + 1; i < snake.cells.length; i++) {
-      
-      // snake occupies same space as a body part. reset game
-      if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
-        snake.x = 160;
-        snake.y = 160;
-        snake.cells = [];
-        snake.maxCells = 4;
-        snake.dx = grid;
-        snake.dy = 0;
-
-        apple.x = getRandomInt(0, 25) * grid;
-        apple.y = getRandomInt(0, 25) * grid;
-      }
-    }
-  });
-}
-
-// listen to keyboard events to move the snake
-document.addEventListener('keydown', function(e) {
-  // prevent snake from backtracking on itself by checking that it's 
-  // not already moving on the same axis (pressing left while moving
-  // left won't do anything, and pressing right while moving left
-  // shouldn't let you collide with your own body)
-  
-  // left arrow key
-  if (e.which === 37 && snake.dx === 0) {
-    snake.dx = -grid;
-    snake.dy = 0;
-  }
-  // up arrow key
-  else if (e.which === 38 && snake.dy === 0) {
-    snake.dy = -grid;
-    snake.dx = 0;
-  }
-  // right arrow key
-  else if (e.which === 39 && snake.dx === 0) {
-    snake.dx = grid;
-    snake.dy = 0;
-  }
-  // down arrow key
-  else if (e.which === 40 && snake.dy === 0) {
-    snake.dy = grid;
-    snake.dx = 0;
-  }
-});
-
-// start the game
-requestAnimationFrame(loop);
-</script>
 </body>
 </html>
